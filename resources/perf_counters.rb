@@ -18,7 +18,7 @@
 # limitations under the License.
 
 property :perf_counters, Hash, required: true
-property :path, String, default: ::File.dirname(node['telegraf']['config_file_path']) + '/telegraf.d'
+property :path, String, default: lazy { ::File.dirname(node['telegraf']['config_file_path']) + '/telegraf.d' }
 property :service_name, String, default: 'default'
 property :reload, [true, false], default: true
 
